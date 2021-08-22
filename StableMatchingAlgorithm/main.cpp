@@ -10,8 +10,9 @@
 using namespace std;
 
 void buildSampleData();
+void initializeFree();
 void print(vector<vector<string>> v);
-void stableMatch(vector<vector<string>> m, vector<vector<string>> w);
+void stableMatch();
 
 /*
  Use a dating site format as and example, pairing a man and woman with each other.
@@ -112,6 +113,9 @@ void buildSampleData() {
         {"b", "x", "y", "z"},
         {"c", "x", "y", "z"}
     };
+}
+
+void initializeFree() {
     ma = { 0, 0, 0 };
     wa = { 0, 0, 0 };
 }
@@ -147,6 +151,6 @@ void print(vector<vector<string>> v) {
     else
         w rejects m
  */
-void stableMatch(vector<vector<string>> m, vector<vector<string>> w) {
-    
+void stableMatch() {
+    initializeFree();
 }
