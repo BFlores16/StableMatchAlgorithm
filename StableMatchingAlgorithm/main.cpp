@@ -9,9 +9,9 @@
 #include <vector>
 using namespace std;
 
-void stableMatch();
 void buildSampleData();
 void print(vector<vector<string>> v);
+void stableMatch(vector<vector<string>> m, vector<vector<string>> w);
 
 /*
  Use a dating site format as and example, pairing a man and woman with each other.
@@ -81,13 +81,19 @@ Clare  | Xavier  | Yancey  | Zeus+
  */
 
 // Global sample data
+// Use the first letter of each name to denote the person
 vector<vector<string>> mp;  // men's preference
 vector<vector<string>> wp;  // women's preference
+// Toggle between 0 and 1. 0 indicates available, 1 indicates taken.
+vector<int> ma;  // men available
+vector<int> wa;  // women available
 
 int main(int argc, const char * argv[]) {
     buildSampleData();
     print(mp);
     print(wp);
+    
+    stableMatch(mp, wp);
     
     return 0;
 }
@@ -106,6 +112,8 @@ void buildSampleData() {
         {"b", "x", "y", "z"},
         {"c", "x", "y", "z"}
     };
+    ma = { 0, 0, 0 };
+    wa = { 0, 0, 0 };
 }
 
 /*
@@ -139,6 +147,6 @@ void print(vector<vector<string>> v) {
     else
         w rejects m
  */
-void stableMatch() {
+void stableMatch(vector<vector<string>> m, vector<vector<string>> w) {
     
 }
