@@ -6,9 +6,12 @@
 //
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 void stableMatch();
+void buildSampleData();
+void print(vector<vector<string>> v);
 
 /*
  Use a dating site format as and example, pairing a man and woman with each other.
@@ -77,9 +80,51 @@ Clare  | Xavier  | Yancey  | Zeus+
  Note that not everyone is going to be matched with their top choice.
  */
 
-int main(int argc, const char * argv[]) {
+// Global sample data
+vector<vector<string>> mp;  // men's preference
+vector<vector<string>> wp;  // women's preference
 
+int main(int argc, const char * argv[]) {
+    buildSampleData();
+    print(mp);
+    print(wp);
+    
     return 0;
+}
+
+/*
+ Helper to build sample data
+ */
+void buildSampleData() {
+    mp = {
+        {"x", "a", "b", "c"},
+        {"y", "b", "a", "c"},
+        {"z", "a", "b", "c"}
+    };
+    wp = {
+        {"a", "y", "x", "z"},
+        {"b", "x", "y", "z"},
+        {"c", "x", "y", "z"}
+    };
+}
+
+/*
+ Helper to print 2D array
+ */
+void print(vector<vector<string>> v) {
+    if (v[0][0] == "x") {
+        cout << "Men's preferences:" << endl;
+    } else {
+        cout << "Women's preferences:" << endl;
+    }
+    for (int i = 0; i < v.size(); i++)
+    {
+        for (int j = 0; j < v[i].size(); j++)
+        {
+            cout << v[i][j] << " ";
+        }
+        cout << endl;
+    }
 }
 
 /* Pseudo-code
